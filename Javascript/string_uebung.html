@@ -18,20 +18,28 @@
 
         function hinzufügen() {
             let name = document.getElementById("eingabe").value;
-            let ersetzte_Buchstaben = name
-                .replace(/A/g, '𝔄').replace(/B/g, '𝔅').replace(/C/g, 'ℭ').replace(/D/g, '𝔇').replace(/E/g, '𝔈')
-                .replace(/F/g, '𝔉').replace(/G/g, '𝔊').replace(/H/g, 'ℌ').replace(/I/g, 'ℑ').replace(/J/g, '𝔍')
-                .replace(/K/g, '𝔎').replace(/L/g, '𝔏').replace(/M/g, '𝔐').replace(/N/g, '𝔑').replace(/O/g, '𝔒')
-                .replace(/P/g, '𝔓').replace(/Q/g, '𝔔').replace(/R/g, 'ℜ').replace(/S/g, '𝔖').replace(/T/g, '𝔗')
-                .replace(/U/g, '𝔘').replace(/V/g, '𝔙').replace(/W/g, '𝔚').replace(/X/g, '𝔛').replace(/Y/g, '𝔜')
-                .replace(/Z/g, 'ℨ')
-                .replace(/a/g, '𝔞').replace(/b/g, '𝔟').replace(/c/g, '𝔠').replace(/d/g, '𝔡').replace(/e/g, '𝔢')
-                .replace(/f/g, '𝔣').replace(/g/g, '𝔤').replace(/h/g, '𝔥').replace(/i/g, '𝔦').replace(/j/g, '𝔧')
-                .replace(/k/g, '𝔨').replace(/l/g, '𝔩').replace(/m/g, '𝔪').replace(/n/g, '𝔫').replace(/o/g, '𝔬')
-                .replace(/p/g, '𝔭').replace(/q/g, '𝔮').replace(/r/g, '𝔯').replace(/s/g, '𝔰').replace(/t/g, '𝔱')
-                .replace(/u/g, '𝔲').replace(/v/g, '𝔳').replace(/w/g, '𝔴').replace(/x/g, '𝔵').replace(/y/g, '𝔶')
-                .replace(/z/g, '𝔷');
-            werte.push(ersetzte_Buchstaben);
+            if (name.trim().toLowerCase() === "gojo") {
+                werte.push({ type: 'image', src: 'bilder/gojo_meme.webp' });
+            } else if (name.toLowerCase() === "sukuna") {
+                werte.push({ type: 'image', src: 'bilder/tukuna.webp' });
+            } else if (name.toLowerCase() === "marcel") {
+                werte.push({ type: 'image', src: 'bilder/marcel_tongue.png' });
+            } else {
+                let ersetzte_Buchstaben = name
+                    .replace(/A/g, '𝔄').replace(/B/g, '𝔅').replace(/C/g, 'ℭ').replace(/D/g, '𝔇').replace(/E/g, '𝔈')
+                    .replace(/F/g, '𝔉').replace(/G/g, '𝔊').replace(/H/g, 'ℌ').replace(/I/g, 'ℑ').replace(/J/g, '𝔍')
+                    .replace(/K/g, '𝔎').replace(/L/g, '𝔏').replace(/M/g, '𝔐').replace(/N/g, '𝔑').replace(/O/g, '𝔒')
+                    .replace(/P/g, '𝔓').replace(/Q/g, '𝔔').replace(/R/g, 'ℜ').replace(/S/g, '𝔖').replace(/T/g, '𝔗')
+                    .replace(/U/g, '𝔘').replace(/V/g, '𝔙').replace(/W/g, '𝔚').replace(/X/g, '𝔛').replace(/Y/g, '𝔜')
+                    .replace(/Z/g, 'ℨ')
+                    .replace(/a/g, '𝔞').replace(/b/g, '𝔟').replace(/c/g, '𝔠').replace(/d/g, '𝔡').replace(/e/g, '𝔢')
+                    .replace(/f/g, '𝔣').replace(/g/g, '𝔤').replace(/h/g, '𝔥').replace(/i/g, '𝔦').replace(/j/g, '𝔧')
+                    .replace(/k/g, '𝔨').replace(/l/g, '𝔩').replace(/m/g, '𝔪').replace(/n/g, '𝔫').replace(/o/g, '𝔬')
+                    .replace(/p/g, '𝔭').replace(/q/g, '𝔮').replace(/r/g, '𝔯').replace(/s/g, '𝔰').replace(/t/g, '𝔱')
+                    .replace(/u/g, '𝔲').replace(/v/g, '𝔳').replace(/w/g, '𝔴').replace(/x/g, '𝔵').replace(/y/g, '𝔶')
+                    .replace(/z/g, '𝔷');
+                werte.push({ type: 'text', content: ersetzte_Buchstaben });
+            }
             aktualisiereListe();
             document.getElementById("eingabe").value = "";
         }
@@ -39,7 +47,11 @@
         function aktualisiereListe() {
             document.getElementById("Liste").innerHTML = "";
             for (let i = 0; i < werte.length; i++) {
-                document.getElementById("Liste").innerHTML += werte[i] + " <button onclick='löschen(" + i + ")'>löschen</button><br>";
+                if (werte[i].type === 'image') {
+                    document.getElementById("Liste").innerHTML += '<img src="' + werte[i].src + '" alt="Gojo Meme" style="max-width: 200px;"> <button onclick="löschen(' + i + ')">löschen</button><br>';
+                } else {
+                    document.getElementById("Liste").innerHTML += werte[i].content + " <button onclick='löschen(" + i + ")'>löschen</button><br>";
+                }
             }
         }
 

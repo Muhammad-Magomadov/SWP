@@ -1,8 +1,14 @@
 body {
-    background-color: #FFD580;
+    background-color: #002fff43;
     text-align: center;
 }
 
 h1 {
     font-weight: bold;
+}
+img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px 0;
 }
