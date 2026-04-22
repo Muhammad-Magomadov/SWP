@@ -1,39 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../HTML/css/style.css">
 </head>
+
 <body>
-    <h1>String Übung</h1>
-    <input type="text" id="eingabe" placeholder="Wert eingeben">
+    <h1>Name änderer</h1>
+    <input type="text" id="eingabe" placeholder="Name eingeben">
     <button onclick="hinzufügen()">Hinzufügen</button>
     <div id="Liste"></div>
     <script>
         let werte = [];
 
         function hinzufügen() {
-            let wert = document.getElementById("eingabe").value;
-            werte.push(wert);
+            let name = document.getElementById("eingabe").value;
+            let ersetzte_Buchstaben = name
+                .replace(/A/g, '𝔄').replace(/B/g, '𝔅').replace(/C/g, 'ℭ').replace(/D/g, '𝔇').replace(/E/g, '𝔈')
+                .replace(/F/g, '𝔉').replace(/G/g, '𝔊').replace(/H/g, 'ℌ').replace(/I/g, 'ℑ').replace(/J/g, '𝔍')
+                .replace(/K/g, '𝔎').replace(/L/g, '𝔏').replace(/M/g, '𝔐').replace(/N/g, '𝔑').replace(/O/g, '𝔒')
+                .replace(/P/g, '𝔓').replace(/Q/g, '𝔔').replace(/R/g, 'ℜ').replace(/S/g, '𝔖').replace(/T/g, '𝔗')
+                .replace(/U/g, '𝔘').replace(/V/g, '𝔙').replace(/W/g, '𝔚').replace(/X/g, '𝔛').replace(/Y/g, '𝔜')
+                .replace(/Z/g, 'ℨ')
+                .replace(/a/g, '𝔞').replace(/b/g, '𝔟').replace(/c/g, '𝔠').replace(/d/g, '𝔡').replace(/e/g, '𝔢')
+                .replace(/f/g, '𝔣').replace(/g/g, '𝔤').replace(/h/g, '𝔥').replace(/i/g, '𝔦').replace(/j/g, '𝔧')
+                .replace(/k/g, '𝔨').replace(/l/g, '𝔩').replace(/m/g, '𝔪').replace(/n/g, '𝔫').replace(/o/g, '𝔬')
+                .replace(/p/g, '𝔭').replace(/q/g, '𝔮').replace(/r/g, '𝔯').replace(/s/g, '𝔰').replace(/t/g, '𝔱')
+                .replace(/u/g, '𝔲').replace(/v/g, '𝔳').replace(/w/g, '𝔴').replace(/x/g, '𝔵').replace(/y/g, '𝔶')
+                .replace(/z/g, '𝔷');
+            werte.push(ersetzte_Buchstaben);
             aktualisiereListe();
             document.getElementById("eingabe").value = "";
         }
-        
+
         function aktualisiereListe() {
             document.getElementById("Liste").innerHTML = "";
-            for(let i = 0; i < werte.length; i++) {
-
-                console.log(werte[i]);
-                document.getElementById("Liste").innerHTML += werte[i] + "<button onclick='löschen()'>löschen</button><br>";
+            for (let i = 0; i < werte.length; i++) {
+                document.getElementById("Liste").innerHTML += werte[i] + " <button onclick='löschen(" + i + ")'>löschen</button><br>";
             }
         }
-        
+
         function löschen(index) {
             werte.splice(index, 1);
+            aktualisiereListe();
         }
 
 
     </script>
 </body>
+
 </html>
