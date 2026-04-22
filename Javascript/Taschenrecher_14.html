@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taschenrechner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input,
+        select,
+        button {
+            margin: 5px;
+            padding: 8px;
+        }
+
+        .output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Taschenrechner</h1>
+    <input type="number" id="zahl1" placeholder="Erste Zahl">
+    <select id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" id="zahl2" placeholder="Zweite Zahl">
+    <select id="ausgabeArt">
+        <option value="liste">Liste</option>
+        <option value="tabelle">Tabelle</option>
+        <option value="paragraph">Paragraph</option>
+        <option value="text">Text</option>
+    </select>
+    <button onclick="berechnen()">Berechnen</button>
+
+    <div class="output" id="outputContainer">
+        <div id="listeContainer" style="display: none;">
+            <h2>Ergebnis als Liste:</h2>
+            <ul id="liste"></ul>
+        </div>
+
+        <div id="tabelleContainer" style="display: none;">
+            <h2>Ergebnis als Tabelle:</h2>
+            <table id="tabelle" border="1"></table>
+        </div>
+
+        <div id="paragraphContainer" style="display: none;">
+            <h2>Ergebnis als Paragraph:</h2>
+            <p id="paragraph"></p>
+        </div>
+
+        <div id="textContainer" style="display: none;">
+            <h2>Ergebnis als Text:</h2>
+            <span id="text"></span>
+        </div>
+    </div>
+
+    <script>
+        function berechnen() {
+            let zahl1 = parseFloat(document.getElementById("zahl1").value);
+            let zahl2 = parseFloat(document.getElementById("zahl2").value);
+            let op = document.getElementById("operation").value;
+
+            if (isNaN(zahl1) || isNaN(zahl2)) {
+                alert("Bitte gültige Zahlen eingeben!");
+                return;
+            }
+
+            let ergebnis;
+            switch (op) {
+                case "+":
+                    ergebnis = zahl1 + zahl2;
+                    break;
+                case "-":
+                    ergebnis = zahl1 - zahl2;
+                    break;
+                case "*":
+                    ergebnis = zahl1 * zahl2;
+                    break;
+                case "/":
+                    if (zahl2 === 0) {
+                        alert("Division durch Null nicht erlaubt!");
+                        return;
+                    }
+                    ergebnis = zahl1 / zahl2;
+                    break;
+            }
+
+            // Als Liste
+            document.getElementById("liste").innerHTML = `<li>Das Ergebnis von ${zahl1} ${op} ${zahl2} ist ${ergebnis}</li>`;
+
+            // Als Tabelle
+            document.getElementById("tabelle").innerHTML = `
+                <tr>
+                    <td>Operation</td>
+                    <td>${zahl1} ${op} ${zahl2}</td>
+                </tr>
+                <tr>
+                    <td>Ergebnis</td>
+                    <td>${ergebnis}</td>
+                </tr>
+            `;
+
+            // Als Paragraph
+            document.getElementById("paragraph").innerHTML = `Das Ergebnis der Berechnung ${zahl1} ${op} ${zahl2} ist ${ergebnis}.`;
+
+            // Als Text
+            document.getElementById("text").innerHTML = `Ergebnis: ${ergebnis}`;
+
+            // Ausgabeart auswählen und anzeigen
+            let art = document.getElementById("ausgabeArt").value;
+            document.getElementById("listeContainer").style.display = "none";
+            document.getElementById("tabelleContainer").style.display = "none";
+            document.getElementById("paragraphContainer").style.display = "none";
+            document.getElementById("textContainer").style.display = "none";
+            document.getElementById(art + "Container").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

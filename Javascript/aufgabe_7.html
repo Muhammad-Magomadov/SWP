@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="zid"></div>
+    <script>
+        const container = document.getElementById("zid");
+        container.innerHTML += "Start<br>";
+        // Erstelle zwei Zufallszahl zwischen 0 und 100 
+        let ran1 = Math.floor(Math.random() * 101);
+        let ran2 = Math.floor(Math.random() * 101);
+ 
+
+        // Wenn die erste Zahl kleiner ist als die zweite UND die erste Zahl kleiner ist als 50 
+        if (ran1 < ran2 && ran1 < 50) {
+        
+        // dann gib aus "Zahl 1 ist kleiner als Zahl 2 und Mini" 
+            container.innerHTML += "Zahl 1 ist kleiner als Zahl 2 und Mini<br>";
+            container.innerHTML += "<br>";
+        }
+        
+        // Wenn die erste Zahl kleiner ist als 30 oder die zweite Zahl kleiner ist als 30 
+        // dann gib aus "Eine der beiden ist kleiner als 30" 
+        if (ran1 < 30 || ran2 < 30) {
+            container.innerHTML += "Eine der beiden ist kleiner als 30<br>";
+            container.innerHTML += "<br>";
+        }
+
+        // Wenn die erste Zahl kleiner ist als 50 UND die zweite Zahl ungleich 50 ist 
+        // dann gib aus "Erste Zahl klein, zweite kein 50iger" 
+        if (ran1 < 50 && ran2 !== 50) {
+            container.innerHTML += "Erste Zahl klein, zweite kein 50iger<br>";
+            container.innerHTML += "<br>";
+        }
+
+    </script>
+</body>
+</html>

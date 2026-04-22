@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iRock</title>
+
+    <script>
+    var on = 0      // on ist variable damit; code damit es als standard steht, dass der stein traurig ist, da er nicht gestreichelt wird
+    function touchstein() {
+        var username = "xx"
+        if (username){
+            //alert('username ist ' + username)
+            if (on == 1){
+                document.getElementById("steinImg").src = "bilder/happy.png"
+                on = 0
+            }
+            else {
+                document.getElementById("steinImg").src = "bilder/sad.png"
+                on = 1
+            }
+        }
+
+
+
+    }
+    </script>
+</head>
+
+<body onload="alert('Hier kommt Stoni')"> 
+    <div style="margin-top: 100px;text-align:center">
+        <img id="steinImg" src="bilder/sad.png" alt="Stein" onclick="touchstein()">
+    </div> 
+</body>
+</html>

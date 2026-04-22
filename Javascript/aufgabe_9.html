@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="zid"></div>
+    <script>
+    const container = document.getElementById("zid");
+    container.innerHTML += "Start!<br>";
+    let fertig = 0;
+    while (fertig < 2) {
+        for (let x = 1; x <= 4; x++) {
+            container.innerHTML += "X ";
+        }
+        container.innerHTML += "<br>";
+        for (let O = 1; O <= 4; O++) {
+            container.innerHTML += "O ";
+        }
+        container.innerHTML += "<br>";
+        fertig++;
+    }
+    container.innerHTML += "fertig!" + "<br>";
+    let a = 0;
+    for (let i = 1; i <= 100; i++) {
+        if ((i/2) === Math.floor(i/2)) {
+        a += i;
+        }
+        
+    }
+    container.innerHTML += "Summe der geraden Zahlen: " + a;
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+div {
+    border-style: solid;
+    height: 100px;
+}
+.eins {
+    background-color: rgb(127, 88, 194);
+    padding: 20px;
+    width: 100px;
+}
+#id1, #id2, #id3 {
+    background-color: rgb(101, 229, 186);
+    width: 70%
+}
+.zwei {
+    background-color: rgb(114, 90, 179);
+    width: 350px
+}
+.drei {
+    background-color: rgb(152, 110, 192);
+}
+#id1 {
+    width: 80%;
+    margin: 10px 40px 20px 
+}
+
+

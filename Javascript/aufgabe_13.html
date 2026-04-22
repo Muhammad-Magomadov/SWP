@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Liste verwalten</h1>
+    <input type="text" id="eingabe" placeholder="Wert eingeben">
+    <button onclick="hinzufügen()">Hinzufügen</button>
+    <div id="Liste"></div>
+    <script>
+        let werte = [];
+
+        function hinzufügen() {
+            let wert = document.getElementById("eingabe").value;
+            werte.push(wert);
+            aktualisiereListe();
+            document.getElementById("eingabe").value = "";
+
+
+            /*          von KI
+            const eingabe = document.getElementById('eingabe').value;
+            if (eingabe) {
+                werte.push(eingabe);
+                aktualisiereListe();
+                document.getElementById('eingabe').value = '';
+            }
+            */
+        }
+        
+        function aktualisiereListe() {
+            document.getElementById("Liste").innerHTML = "";
+            for(let i = 0; i < werte.length; i++) {
+
+                console.log(werte[i]);
+                document.getElementById("Liste").innerHTML += werte[i] + "<button onclick='löschen()'>löschen</button><br>";
+            }
+
+            /*          von KI 
+            const listeDiv = document.getElementById('liste'); 
+            listeDiv.innerHTML = '';
+            werte.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.textContent = item;
+                const löschenButton = document.createElement('button');
+                löschenButton.textContent = 'Löschen';
+                löschenButton.onclick = () => {
+                    werte.splice(index, 1);
+                    aktualisiereListe();
+                };
+                itemDiv.appendChild(löschenButton);
+                listeDiv.appendChild(itemDiv);
+            });
+        */
+        }
+
+        function löschen(index) {
+            werte.splice(index, 1);
+            aktualisiereListe();
+        }
+
+    </script>
+</body>
+</html>

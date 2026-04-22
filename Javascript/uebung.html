@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Übungen</h1>
+    <div id="ausgabe"></div>
+    <p>hallo</p>
+    <p>hallo</p>
+    <p>hallo</p>
+    <script>
+        let ausgabe = document.getElementById("ausgabe");
+        ausgabe.innerHTML = "Hallo" + "<br>";
+        let str ="HELLO WORLD"; 
+        // Länge vom String
+        ausgabe.innerHTML += "Länge <br>" + str + " = " + str.length;
+        // Buchstabe an Position 1
+        ausgabe.innerHTML += "<br>" + str + " = " + str.charAt(0);
+        let suche = "1";
+        let zaehler =0;
+        for (let i=0;i<str.length;i++){
+            if (str.charAt(i) === suche){
+                zaehler++;
+            }
+        }
+        ausgabe.innerHTML += "<br>Anzahl von " + suche + " in " + str + " = " + zaehler;
+        // Suche nach Text im String bei -1 nicht gefunden bei allem anderen die Position
+        ausgabe.innerHTML += "<br>suche world im str " + str.indexOf("WORLD");
+        //concat
+        str = str.concat(" gschisti gschasti!!");
+        ausgabe.innerHTML += "<br>" +str;
+        //erstetzen
+        ausgabe.innerHTML += "<br>" + str.replace("HELLO", "HELLO Kitty");
+        //split
+        let woerter = str.split(" ");
+        ausgabe.innerHTML += "<br>Woerteranzahl " + woerter.length;
+        for (let i = 0; i < woerter.length; i++){
+            ausgabe.innerHTML += "<br>" + woerter[i] + " = Länge: " + woerter[i].length;
+        }
+        // Ausschneiden
+        ausgabe.innerHTML += "<br>Ausschneiden 1-3 von Hallo..." + str.substring(0, 3);
+        let pes = document.getElementsByTagName("p");
+        ausgabe.innerHTML += "<br>?Anzahl p " + pes.length;
+        for (let i = 0; i < pes.length; i++){
+            pes[i].innerHTML += i + 1;
+
+        }
+        
+    </script>
+</body>
+
+</html>

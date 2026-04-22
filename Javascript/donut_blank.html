@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <title>Donut</title>
+    <style>
+        .row {
+            margin-bottom: 10px;
+        }
+
+        .label {
+            display: inline-block;
+            width: 150px;
+        }
+
+        .gesamt {
+            font-weight: bold;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+
+        function updateOrder() {
+            const STEUER=0.1;
+            const DONUTPREIS=2.1;
+
+            var anzDonut = document.getElementById("anzDonut").value;
+            var anzSchoki = document.getElementById("anzSchoki").value;
+            var subTotal = (anzDonut + anzSchoki) * DONUTPREIS;
+            var steuerBetrag = subTotal * STEUER;
+            var gesamtBetrag = subTotal + steuerBetrag;
+            document.getElementById("netto").value = "E " + subTotal.toFixed(2);
+            document.getElementById("steuer").value = "E " + steuerBetrag.toFixed(2);
+            document.getElementById("gesamt").value = "E " + gesamtBetrag.toFixed(2);
+
+        }
+        function placeOrder() {
+            form.submit();
+        }
+
+
+    </script>
+
+</head>
+
+
+<body>
+    <div id="Bestellung">
+        <form action="donut_0.html" method="get">
+            <h2>Joe's Just - In - Time Donuts</h2>
+            <h3>Jeder Donut um 50 Cent</h3>
+            <img src="bilder/donut.webp" alt="Donut" width="100">
+            <div class="row">
+                <label for="name" class="label">Name</label>
+                <input type="text" id="name" name="name" value="Markus">
+            </div>
+            <div class="row">
+                <label for="anzDonut" class="label">Anzahl Normal</label>
+                <input type="number" id="anzDonut" name="anzDonut" value="3" onchange="updateOrder();">
+            </div>
+            <div class="row">
+                <label for="anzSchoki" class="label">Anzahl Schoki</label>
+                <input type="number" id="anzSchoki" name="anzSchoki" value="34" onchange="updateOrder();">
+            </div>
+            <div class="row">
+                <label for="abholzeitMin" class="label">Abholzeit in Min</label>
+                <input type="number" id="abholzeitMin" name="abholzeitMin">
+            </div>
+            <div class="row">
+                <label for="netto" class="label">Netto</label>
+                <input type="number" id="netto" name="netto" value="18.5">
+            </div>
+            <div class="row">
+                <label for="steuer" class="label">Steuer</label>
+                <input type="number" id="steuer" name="steuer" value="3.6">
+            </div>
+            <div class="row">
+                <label class="label gesamt">Gesamt</label>
+                <input type="number" id="gesamt" name="gesamt" value="22.1">
+            </div>
+            <input type="button" value="Bestellung abschicken" onclick="PlaceOrder(this.form);">
+        </form>
+    </div>
+</body>
+</body>
+
+</html>
