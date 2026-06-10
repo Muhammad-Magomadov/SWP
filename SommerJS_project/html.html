@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Click Spiel</title>
+    <link rel="stylesheet" href="css.css"> <!-- CSS Verlinkung -->
+</head>
+
+<body>
+    <div id="game">
+        <div id="grid">
+            <!-- 20 Spiel_Felder -->
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+
+        </div>
+        <p id="score"><span id="score-text">Punkte: 0</span> <span class="lives">
+                <img class="heart" src="bilder/Heart_Game.webp" alt="Herz">
+                <img class="heart" src="bilder/Heart_Game.webp" alt="Herz">
+                <img class="heart" src="bilder/Heart_Game.webp" alt="Herz">
+            </span></p>
+        <button id="start-btn">Spiel starten</button>
+    </div>
+    <div id="game-over" class="hidden">
+        <h1>Game Over</h1>
+        <button id="restart-btn">Beginn von neu</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
