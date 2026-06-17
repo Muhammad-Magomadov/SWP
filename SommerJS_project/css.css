@@ -1,3 +1,4 @@
+/* Hauptseite: Hintergrund und allgemeine Schriftfarben */
 body {
     background: #111;
     color: #fff;
@@ -6,12 +7,14 @@ body {
     padding: 20px;
 }
 
+/* Spielcontainer: zentriert das gesamte Spiel auf der Seite */
 #game {
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
 }
 
+/* Rastercontainer: enthält alle einzelnen Spielfelder */
 #grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -19,6 +22,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Einzelnstes Spielfeld: Basisstil für Felder im Grid */
 .field {
     background: #222;
     border: 2px solid #555;
@@ -35,15 +39,18 @@ body {
     justify-content: center;
 }
 
+/* Hover-Effekt für Spielfelder */
 .field:hover {
     transform: scale(1.03);
     border-color: #888;
 }
 
+/* Aktives Feld: wenn ein Wurm darin erscheint */
 .field.active {
     background: #444;
 }
 
+/* Bild im Feld: Styling für das Wurm-Bild */
 .field img {
     max-width: 100%;
     max-height: 100%;
@@ -56,6 +63,7 @@ body {
     user-select: none;
 }
 
+/* Score-Anzeige: Punktestand und Leben */
 #score {
     font-size: 24px;
     margin: 0;
@@ -64,21 +72,25 @@ body {
     gap: 24px;
 }
 
+/* Container für die Lebensherzen */
 .lives {
     display: inline-flex;
     align-items: center;
     gap: 8px;
 }
 
+/* Herzsymbol: Größe des Lebensanzeige-Icons */
 .heart {
     width: 24px;
     height: 24px;
 }
 
+/* Versteckte Elemente: wird für Overlay und andere versteckte Objekte verwendet */
 .hidden {
     display: none !important;
 }
 
+/* Spielende-Overlay: halbtransparenter Bildschirm, wenn das Spiel vorbei ist */
 #game-over {
     position: fixed;
     inset: 0;
@@ -93,12 +105,14 @@ body {
     z-index: 200;
 }
 
+/* Buttons im Game-Over-Bereich */
 #game-over button {
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
 }
 
+/* Startbutton: Stil des Startknopfs */
 #start-btn {
     margin-top: 18px;
     padding: 10px 20px;
@@ -110,6 +124,7 @@ body {
     color: #fff;
 }
 
+/* Hover-Effekt für den Startbutton */
 #start-btn:hover {
     background: #ff6666;
 }
